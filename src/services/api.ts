@@ -1,32 +1,40 @@
-const API_BASE = "http://localhost:3000/api";
-// import { toast } from "sonner";
-
-async function request<T>(endpoint: string, options?: RequestInit): Promise<T> {
-  const res = await fetch(`${API_BASE}${endpoint}`, {
-    headers: {
-      "Content-Type": "application/json",
-    },
-    ...options,
-  });
-
-  if (!res.ok) {
-    const error = await res.json();
-    // toast.error(error.error || "API Error");
-    throw new Error(error.error || "API Error");
-  }
-
-  const data = await res.json();
-  return data.data;
-}
+import { toast } from "sonner";
+import { httpClient } from "@/core/http/client";
 
 export const api = {
-  get: <T>(endpoint: string) => request<T>(endpoint),
+  get: async <T>(endpoint: string) => {
+    try {
+      return await httpClient.get<T>(endpoint);
+    } catch (error) {
+      toast.error((error as Error).message || "API Error");
+      throw error;
+    }
+  },
 
-  post: <T>(endpoint: string, body: unknown) =>
-    request<T>(endpoint, { method: "POST", body: JSON.stringify(body) }),
+  post: async <T>(endpoint: string, body: unknown) => {
+    try {
+      return await httpClient.post<T>(endpoint, body);
+    } catch (error) {
+      toast.error((error as Error).message || "API Error");
+      throw error;
+    }
+  },
 
-  patch: <T>(endpoint: string, body: unknown) =>
-    request<T>(endpoint, { method: "PATCH", body: JSON.stringify(body) }),
+  patch: async <T>(endpoint: string, body: unknown) => {
+    try {
+      return await httpClient.patch<T>(endpoint, body);
+    } catch (error) {
+      toast.error((error as Error).message || "API Error");
+      throw error;
+    }
+  },
 
-  delete: <T>(endpoint: string) => request<T>(endpoint, { method: "DELETE" }),
+  delete: async <T>(endpoint: string) => {
+    try {
+      return await httpClient.delete<T>(endpoint);
+    } catch (error) {
+      toast.error((error as Error).message || "API Error");
+      throw error;
+    }
+  },
 };
