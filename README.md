@@ -13,21 +13,21 @@ Tailwind css
 
 src/
 ├── components/
-│ ├── Layout.tsx # Shared page layout (navbar + Outlet)
-│ └── ui/ # Reusable shadcn/ui primitives
+│ ├── Layout.tsx
+│ └── ui/
 │ ├── button.tsx
-│ ├── datatable.tsx # Generic DataTable - works with any column/data shape
+│ ├── datatable.tsx
 │ ├── table.tsx
 │ └── sonner.tsx
 ├── core/
-│ └── http/client.ts # Reusable HTTP client (fetch wrapper)
+│ └── http/client.ts
 ├── services/
-│ └── api.ts # Base API layer
+│ └── api.ts
 ├── features/
-│ └── DashBoardView.tsx # Main UI view(search + results)
+│ └── DashBoardView.tsx
 ├── types/
-│ └── github.types.ts # TypeScript interfaces
-└── App.tsx # Router setup
+│ └── github.types.ts
+└── App.tsx
 
 ### Reusable Components
 
