@@ -1,6 +1,6 @@
 # GitHub Repo Search
 
-A Simple React SPA app that searches GitHub repositories using GitHub Search API and shows results in a sorted, filterable data table.
+A Simple React SPA app that searches GitHub repositories (GitHub Search API) and shows results in a sorted, filterable data table.
 
 ## Tech Stack
 
@@ -13,13 +13,11 @@ Tailwind css
 
 ## Project Structure
 
-## Project Structure
-
 ```
 src/
 ├── components/
 │   ├── Layout.tsx             # Shared page layout (navbar + Outlet)
-│   └── ui/                    # Reusable shadcn/ui primitives
+│   └── ui/                    # Reusable shadcn/ui components
 │       ├── button.tsx
 │       ├── datatable.tsx      # Generic DataTable - works with any column/data shape
 │       ├── table.tsx
@@ -81,6 +79,6 @@ Open `http://localhost:8080`
 
 The Dockerfile uses a multi-stage build:
 
-1. **development** — installs dependencies
-2. **build** — runs `npm run build`, outputs to `dist/`
-3. **nginx:alpine** — serves the static build artifacts
+**development** — installs dependencies
+**build** — runs `npm run build`, outputs to `dist/`
+**nginx:alpine** — serves the static build artifacts
