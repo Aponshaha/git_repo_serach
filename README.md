@@ -11,23 +11,7 @@ Tailwind css
 
 ## Project Structure
 
-src/
-├── components/
-│ ├── Layout.tsx
-│ └── ui/
-│ ├── button.tsx
-│ ├── datatable.tsx
-│ ├── table.tsx
-│ └── sonner.tsx
-├── core/
-│ └── http/client.ts
-├── services/
-│ └── api.ts
-├── features/
-│ └── DashBoardView.tsx
-├── types/
-│ └── github.types.ts
-└── App.tsx
+<pre> ```bash src/ ├── components/ │ ├── Layout.tsx # Shared page layout (navbar + Outlet) │ └── ui/ # Reusable shadcn/ui primitives │ ├── button.tsx │ ├── datatable.tsx # Generic DataTable - works with any column/data shape │ ├── table.tsx │ └── sonner.tsx ├── core/ │ └── http/client.ts # Reusable HTTP client (fetch wrapper) ├── services/ │ └── api.ts # Base API layer ├── features/ │ └── DashBoardView.tsx # Main UI view (search + results) ├── types/ │ └── github.types.ts # TypeScript interfaces └── App.tsx # Router setup ``` </pre>
 
 ### Reusable Components
 
