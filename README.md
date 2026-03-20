@@ -1,17 +1,39 @@
 # GitHub Repo Search
 
-A Simple React SPA app that searche GitHub repositories using GitHub Search API and shows results in a sorted, filterable data table.
+A Simple React SPA app that searches GitHub repositories using GitHub Search API and shows results in a sorted, filterable data table.
 
 ## Tech Stack
 
+```
 Node Js
 React
 Vite
 Tailwind css
+```
 
 ## Project Structure
 
-<pre> ```bash src/ ├── components/ │ ├── Layout.tsx # Shared page layout (navbar + Outlet) │ └── ui/ # Reusable shadcn/ui primitives │ ├── button.tsx │ ├── datatable.tsx # Generic DataTable - works with any column/data shape │ ├── table.tsx │ └── sonner.tsx ├── core/ │ └── http/client.ts # Reusable HTTP client (fetch wrapper) ├── services/ │ └── api.ts # Base API layer ├── features/ │ └── DashBoardView.tsx # Main UI view (search + results) ├── types/ │ └── github.types.ts # TypeScript interfaces └── App.tsx # Router setup ``` </pre>
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── Layout.tsx             # Shared page layout (navbar + Outlet)
+│   └── ui/                    # Reusable shadcn/ui primitives
+│       ├── button.tsx
+│       ├── datatable.tsx      # Generic DataTable - works with any column/data shape
+│       ├── table.tsx
+│       └── sonner.tsx
+├── core/
+│   └── http/client.ts         # Reusable HTTP client (fetch wrapper)
+├── services/
+│   └── api.ts                 # Base API layer
+├── features/
+│   └── DashBoardView.tsx      # Main UI view (search + results)
+├── types/
+│   └── github.types.ts        # TypeScript interfaces
+└── App.tsx                    # Router setup
+```
 
 ### Reusable Components
 
@@ -61,4 +83,4 @@ The Dockerfile uses a multi-stage build:
 
 1. **development** — installs dependencies
 2. **build** — runs `npm run build`, outputs to `dist/`
-3. **nginx:alpine** — serves only the static build artifacts (~25MB final image)
+3. **nginx:alpine** — serves the static build artifacts
