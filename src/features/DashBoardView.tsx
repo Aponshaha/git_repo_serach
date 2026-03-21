@@ -102,7 +102,6 @@ export default function DashBoardView() {
     setPages(0);
 
     try {
-      // Initial Items : 100
       const first = await api.get<GitHubSearchResponse>(
         `/search/repositories?q=${encodeURIComponent(_query)}&page=1&per_page=${PER_PAGE}`,
       );
@@ -116,7 +115,7 @@ export default function DashBoardView() {
       const allItems = [...(first.items ?? [])];
       setPages(1);
 
-      // Fetch remaining
+      // Fetch rest
       for (let p = 2; p <= pagesToFetch; p++) {
         const response = await api.get<GitHubSearchResponse>(
           `/search/repositories?q=${encodeURIComponent(_query)}&page=${p}&per_page=${PER_PAGE}`,
